@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+defaultTasks 'war'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile 'javax.servlet:javax.servlet-api:3.1.0'
+
+    testCompile 'junit:junit:4.12'
+
+    dependencies {
+    def tomcatVersion = '8.0.32'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+}
