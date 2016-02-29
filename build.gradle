@@ -13,6 +13,7 @@ apply plugin: 'war'
 apply plugin: 'com.bmuschko.tomcat'
 defaultTasks 'war'
 
+version = '1.0.0' + (System.properties['scmrevision'] != null ? '-' + System.properties['scmrevision'] : '-SNAPSHOT')
 
 repositories {
     jcenter()
